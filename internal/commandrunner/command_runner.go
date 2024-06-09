@@ -5,14 +5,18 @@ import (
 )
 
 //go:generate mockery --name=CommandRunner --filename=command_runner.go --output=../installer/mocks
+//go:generate mockery --name=CommandRunner --filename=command_runner.go --output=../enabler/mocks
 type CommandRunner interface {
-	Run(cmd string) ([]byte, error)
+	RunWith(args ...string) (output string, err error)
 }
 
-func Get(cmd string) CommandRunner {
-	if cmd == "curl" {
+func Get(name string) CommandRunner {
+	if name == "curl" {
 		return &curlCommandRunner{}
+	} else if name == "go" {
+		return &goCommandRunner{}
 	}
-	log.Fatalf("command runner %s not found", cmd)
+
+	log.Fatalf("command runner %s not found", name)
 	return nil
 }

@@ -14,8 +14,8 @@ type Installer interface {
 func Get(lib string) (Installer, error) {
 	switch model.Library(lib) {
 	case model.LibraryGolangciLint:
-		return &golangciLintInstaller{commandRunner: commandrunner.Get("curl")}, nil
+		return &golangciLintInstaller{curlCmdRunner: commandrunner.Get("curl")}, nil
 	default:
-		return nil, fmt.Errorf("lib %s is not supported", lib)
+		return nil, fmt.Errorf("lib %s is not supported for installing", lib)
 	}
 }

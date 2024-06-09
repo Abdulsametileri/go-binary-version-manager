@@ -24,7 +24,9 @@ func New() *cobra.Command {
 	}
 
 	ro.AddFlags(cmd)
+
 	cmd.AddCommand(cli.InstallCmd())
+	cmd.AddCommand(cli.EnableCmd())
 
 	return cmd
 }

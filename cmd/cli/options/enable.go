@@ -1,5 +1,5 @@
 package options
 
-type InstallOptions struct {
+type EnableOptions struct {
 	LibraryOptions
 }

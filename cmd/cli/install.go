@@ -26,7 +26,7 @@ func InstallCmd() *cobra.Command {
 }
 
 func Install(ctx context.Context, o *options.InstallOptions) error {
-	inst, err := installer.Get(o.Library)
+	inst, err := installer.Get(o.LibraryName)
 	if err != nil {
 		return err
 	}

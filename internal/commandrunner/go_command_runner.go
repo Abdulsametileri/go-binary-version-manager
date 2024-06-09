@@ -6,13 +6,12 @@ import (
 	"strings"
 )
 
-var _ CommandRunner = (*curlCommandRunner)(nil)
+var _ CommandRunner = (*goCommandRunner)(nil)
 
-type curlCommandRunner struct{}
+type goCommandRunner struct{}
 
-func (c *curlCommandRunner) RunWith(args ...string) (string, error) {
-	args = append([]string{"-c"}, args...)
-	cmd := exec.Command("sh", args...)
+func (c *goCommandRunner) RunWith(args ...string) (string, error) {
+	cmd := exec.Command("go", args...)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return "", fmt.Errorf("Failed to execute command: %s\nOutput: %s", cmd.String(), out)

@@ -14,8 +14,8 @@ func Test_golangciLintInstaller_Install(t *testing.T) {
 		// Given
 		expectedErr := errors.New("runner err")
 		runner := mocks.NewCommandRunner(t)
-		runner.On("Run", mock.Anything).Return([]byte(""), expectedErr)
-		sut := golangciLintInstaller{commandRunner: runner}
+		runner.On("RunWith", mock.Anything).Return("", expectedErr)
+		sut := golangciLintInstaller{curlCmdRunner: runner}
 
 		// When
 		err := sut.Install(context.Background(), "golangci-lint@v1.55.0")
@@ -28,10 +28,10 @@ func Test_golangciLintInstaller_Install(t *testing.T) {
 		// Given
 		runner := mocks.NewCommandRunner(t)
 
-		expectedCmd := "curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin/glvm/golangci-lint@v1.55.0 golangci-lint@v1.55.0"
+		expectedCmd := "curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin/glvm/golangci-lint/golangci-lint@v1.55.0 golangci-lint@v1.55.0"
 
-		runner.On("Run", expectedCmd).Return([]byte("out"), nil)
-		sut := golangciLintInstaller{commandRunner: runner}
+		runner.On("RunWith", expectedCmd).Return("out", nil)
+		sut := golangciLintInstaller{curlCmdRunner: runner}
 
 		// When
 		err := sut.Install(context.Background(), "golangci-lint@v1.55.0")

@@ -8,14 +8,14 @@ import (
 )
 
 type golangciLintInstaller struct {
-	commandRunner commandrunner.CommandRunner
+	curlCmdRunner commandrunner.CommandRunner
 }
 
 var _ Installer = (*golangciLintInstaller)(nil)
 
 func (g *golangciLintInstaller) Install(_ context.Context, version string) error {
-	curlCmd := fmt.Sprintf("curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin/glvm/%s %s", version, version)
-	out, err := g.commandRunner.Run(curlCmd)
+	curlCmd := fmt.Sprintf("curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin/glvm/golangci-lint/%s %s", version, version)
+	out, err := g.curlCmdRunner.RunWith(curlCmd)
 	if err != nil {
 		return err
 	}

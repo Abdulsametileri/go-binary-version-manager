@@ -5,10 +5,10 @@ import (
 	"testing"
 )
 
-func TestInstallOptions_SetLibraryNameAndVersion(t *testing.T) {
+func TestLibraryOptions_SetLibraryNameAndVersion(t *testing.T) {
 	t.Run("Should_Return_Error_When_Args_Are_Empty", func(t *testing.T) {
 		// Given
-		io := &InstallOptions{}
+		io := &LibraryOptions{}
 
 		// When
 		result := io.SetLibraryNameAndVersion([]string{})
@@ -18,7 +18,7 @@ func TestInstallOptions_SetLibraryNameAndVersion(t *testing.T) {
 	})
 	t.Run("Should_Return_Error_When_Args_Aren't_Include_@", func(t *testing.T) {
 		// Given
-		io := &InstallOptions{}
+		io := &LibraryOptions{}
 
 		// When
 		result := io.SetLibraryNameAndVersion([]string{"mockery"})
@@ -28,14 +28,14 @@ func TestInstallOptions_SetLibraryNameAndVersion(t *testing.T) {
 	})
 	t.Run("Success", func(t *testing.T) {
 		// Given
-		io := &InstallOptions{}
+		io := &LibraryOptions{}
 
 		// When
 		result := io.SetLibraryNameAndVersion([]string{"mockery@v2.20.0"})
 
 		// Then
 		assert.Nil(t, result)
-		assert.Equal(t, "mockery", io.Library)
+		assert.Equal(t, "mockery", io.LibraryName)
 		assert.Equal(t, "v2.20.0", io.Version)
 	})
 }
