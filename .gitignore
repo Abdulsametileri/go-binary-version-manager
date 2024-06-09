@@ -21,3 +21,5 @@
 go.work
 go.work.sum
 .idea
+/internal/**/mocks/
+/cmd/**/mocks/

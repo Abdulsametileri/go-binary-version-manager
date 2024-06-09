@@ -14,9 +14,9 @@ Debug (5)
 Trace (6)`
 
 type RootOptions struct {
-	Verbosity uint32 // --verbosity=3 | -v=3
+	Verbosity uint32 // --verbosity=4 | -v=4
 }
 
 func (ro *RootOptions) AddFlags(cmd *cobra.Command) {
-	cmd.PersistentFlags().Uint32VarP(&ro.Verbosity, "verbosity", "v", uint32(log.WarnLevel), verbosityUsage)
+	cmd.PersistentFlags().Uint32VarP(&ro.Verbosity, "verbosity", "v", uint32(log.InfoLevel), verbosityUsage)
 }
