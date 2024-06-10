@@ -7,6 +7,11 @@ const (
 	LibraryMockery      Library = "mockery"
 )
 
+var SupportedLibraries = map[Library]struct{}{
+	LibraryGolangciLint: {},
+	LibraryMockery:      {},
+}
+
 func (l Library) String() string {
 	return string(l)
 }
