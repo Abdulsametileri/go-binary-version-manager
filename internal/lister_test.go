@@ -69,11 +69,7 @@ func Test_stdoutLister_List(t *testing.T) {
 
 		outputBuffer := new(bytes.Buffer)
 
-		sut := &stdoutLister{
-			goCmdRunner: runner,
-			walker:      mockWalker,
-			listTo:      outputBuffer,
-		}
+		sut := NewStdoutLister(runner, outputBuffer, mockWalker)
 
 		// When
 		err := sut.List(context.Background(), "mockery")

@@ -56,7 +56,7 @@ func Test_golangciLintVersionEnabler_Enable(t *testing.T) {
 				"/Users/samet.ileri/go/bin/golangci-lint").
 			Return(nil)
 
-		sut := &versionEnabler{goCmdRunner: runner, os: mockOs}
+		sut := NewVersionEnabler(runner, mockOs)
 
 		// When
 		result := sut.Enable(context.Background(), "golangci-lint", "v1.55.0")
