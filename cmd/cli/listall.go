@@ -5,9 +5,12 @@ import (
 	"errors"
 	"fmt"
 	"github.com/Abdulsametileri/go-binary-version-manager/cmd/cli/options"
-	"github.com/Abdulsametileri/go-binary-version-manager/internal/lister"
+	"github.com/Abdulsametileri/go-binary-version-manager/internal"
+	"github.com/Abdulsametileri/go-binary-version-manager/internal/commandrunner"
 	"github.com/Abdulsametileri/go-binary-version-manager/internal/model"
+	"github.com/Abdulsametileri/go-binary-version-manager/pkg"
 	"github.com/spf13/cobra"
+	"os"
 )
 
 func ListAllCmd() *cobra.Command {
@@ -37,10 +40,6 @@ func ListAllCmd() *cobra.Command {
 }
 
 func ListAll(ctx context.Context, o *options.ListAllOptions) error {
-	stdoutLister, err := lister.Get("stdout")
-	if err != nil {
-		return err
-	}
-
-	return stdoutLister.List(ctx, o.Library)
+	lister := internal.NewStdoutLister(commandrunner.Get("go"), os.Stdout, pkg.RealFileWalker{})
+	return lister.List(ctx, o.Library)
 }

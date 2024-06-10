@@ -28,6 +28,7 @@ func New() *cobra.Command {
 	cmd.AddCommand(cli.InstallCmd())
 	cmd.AddCommand(cli.EnableCmd())
 	cmd.AddCommand(cli.ListAllCmd())
+	cmd.AddCommand(cli.UnInstallCmd())
 
 	return cmd
 }

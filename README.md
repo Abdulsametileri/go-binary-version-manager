@@ -19,7 +19,7 @@ This project infra is easy to extend for other libraries too :)
 | gobvm uninstall $LIBRARY@VERSION | it uninstalls given version of the library           | `gobvm uninstall mockery@v2.20.0`    |
 
 # TODO
-- [ ] Listall, Uninstall cmd implementation (golangci-lint)
+- [x] Listall, Uninstall cmd implementation (golangci-lint)
 - [ ] Listall, Install, Enable, Uninstall implementation (mockery)
 - [ ] Brew package
 - [ ] Makefile, lint

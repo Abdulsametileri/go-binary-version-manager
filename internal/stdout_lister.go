@@ -1,10 +1,11 @@
-package lister
+package internal
 
 import (
 	"bytes"
 	"context"
 	"fmt"
 	"github.com/Abdulsametileri/go-binary-version-manager/internal/commandrunner"
+	"github.com/Abdulsametileri/go-binary-version-manager/pkg"
 	"io"
 	"io/fs"
 )
@@ -14,7 +15,15 @@ var _ Lister = (*stdoutLister)(nil)
 type stdoutLister struct {
 	goCmdRunner commandrunner.CommandRunner
 	listTo      io.Writer
-	walker      FileWalker
+	walker      pkg.FileWalker
+}
+
+func NewStdoutLister(runner commandrunner.CommandRunner, listTo io.Writer, walker pkg.FileWalker) Lister {
+	return &stdoutLister{
+		goCmdRunner: runner,
+		listTo:      listTo,
+		walker:      walker,
+	}
 }
 
 func (s *stdoutLister) List(_ context.Context, lib string) error {

@@ -1,10 +1,10 @@
-package lister
+package internal
 
 import (
 	"bytes"
 	"context"
 	"errors"
-	"github.com/Abdulsametileri/go-binary-version-manager/internal/lister/mocks"
+	"github.com/Abdulsametileri/go-binary-version-manager/internal/mocks"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"os"
