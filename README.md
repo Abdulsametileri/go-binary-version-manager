@@ -42,6 +42,10 @@ or
 mv $HOME/go/bin/go-binary-version-manager $HOME/go/bin/gbvm
 ```
 
+# Behind the scenes
+
+![behind-the-scenes.png](.github%2Fimages%2Fbehind-the-scenes.png)
+
 # Commands
 
 | Command                          | Explanation                                          | Example                              |
