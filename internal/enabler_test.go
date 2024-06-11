@@ -49,7 +49,7 @@ func Test_golangciLintVersionEnabler_Enable(t *testing.T) {
 		runner.On("RunWith", "env", "GOPATH").Return("/Users/samet.ileri/go", nil)
 
 		mockOs := mocks.NewOS(t)
-		mockOs.On("Stat", "/Users/samet.ileri/go/bin/glvm/golangci-lint/v1.55.0/golangci-lint").Return(MockFileInfo{}, nil)
+		mockOs.On("Stat", "/Users/samet.ileri/go/bin/glvm/golangci-lint/v1.55.0/golangci-lint").Return(&MockFileInfo{}, nil)
 		mockOs.On("Remove", "/Users/samet.ileri/go/bin/golangci-lint").Return(nil)
 		mockOs.
 			On("Symlink",
