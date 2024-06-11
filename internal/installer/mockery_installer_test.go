@@ -3,10 +3,11 @@ package installer
 import (
 	"context"
 	"errors"
-	"github.com/Abdulsametileri/go-binary-version-manager/internal/mocks"
-	"github.com/stretchr/testify/assert"
 	"os"
 	"testing"
+
+	"github.com/Abdulsametileri/go-binary-version-manager/internal/mocks"
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_mockeryInstaller_Install(t *testing.T) {

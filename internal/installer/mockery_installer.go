@@ -3,9 +3,10 @@ package installer
 import (
 	"context"
 	"fmt"
+	"os"
+
 	"github.com/Abdulsametileri/go-binary-version-manager/internal/commandrunner"
 	log "github.com/sirupsen/logrus"
-	"os"
 )
 
 type mockeryInstaller struct {

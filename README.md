@@ -18,6 +18,8 @@ This project infra is easy to extend for other libraries too :)
 | gobvm install $LIBRARY@VERSION   | it installs given version of the library             | `gobvm install mockery@v2.20.0`      |
 | gobvm uninstall $LIBRARY@VERSION | it uninstalls given version of the library           | `gobvm uninstall mockery@v2.20.0`    |
 
+
+
 # TODO
 - [ ] Brew package
 - [ ] Makefile, lint

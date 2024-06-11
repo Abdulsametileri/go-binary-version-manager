@@ -14,7 +14,7 @@ func (c *goCommandRunner) RunWith(args ...string) (string, error) {
 	cmd := exec.Command("go", args...)
 	out, err := cmd.CombinedOutput()
 	if err != nil {
-		return "", fmt.Errorf("Failed to execute command: %s\nOutput: %s", cmd.String(), out)
+		return "", fmt.Errorf("failed to execute command: %s\noutput: %s", cmd.String(), out)
 	}
 	return strings.TrimSpace(strings.TrimRight(string(out), "\r\n")), nil
 }

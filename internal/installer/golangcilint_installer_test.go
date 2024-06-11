@@ -3,10 +3,11 @@ package installer
 import (
 	"context"
 	"errors"
+	"testing"
+
 	"github.com/Abdulsametileri/go-binary-version-manager/internal/installer/mocks"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-	"testing"
 )
 
 func Test_golangciLintInstaller_Install(t *testing.T) {

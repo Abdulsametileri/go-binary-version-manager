@@ -1,9 +1,10 @@
 package installer
 
 import (
+	"testing"
+
 	"github.com/Abdulsametileri/go-binary-version-manager/internal/model"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func TestGetInstaller(t *testing.T) {

@@ -4,10 +4,11 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	"github.com/Abdulsametileri/go-binary-version-manager/internal/commandrunner"
-	"github.com/Abdulsametileri/go-binary-version-manager/pkg"
 	"io"
 	"io/fs"
+
+	"github.com/Abdulsametileri/go-binary-version-manager/internal/commandrunner"
+	"github.com/Abdulsametileri/go-binary-version-manager/pkg"
 )
 
 type Lister interface {
@@ -39,7 +40,7 @@ func (s *stdoutLister) List(_ context.Context, lib string) error {
 	root := fmt.Sprintf("%s/bin/glvm/%s", goRootPath, lib)
 
 	buf := bytes.Buffer{}
-	err = s.walker.Walk(root, func(path string, info fs.FileInfo, err error) error {
+	err = s.walker.Walk(root, func(_ string, info fs.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}

@@ -3,9 +3,10 @@ package internal
 import (
 	"context"
 	"fmt"
+	"os"
+
 	"github.com/Abdulsametileri/go-binary-version-manager/internal/commandrunner"
 	"github.com/Abdulsametileri/go-binary-version-manager/pkg"
-	"os"
 )
 
 type VersionEnabler interface {

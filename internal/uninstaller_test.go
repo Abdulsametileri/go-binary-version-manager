@@ -3,9 +3,10 @@ package internal
 import (
 	"context"
 	"errors"
+	"testing"
+
 	"github.com/Abdulsametileri/go-binary-version-manager/internal/mocks"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func Test_uninstaller_Uninstall(t *testing.T) {

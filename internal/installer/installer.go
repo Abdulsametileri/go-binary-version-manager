@@ -3,6 +3,7 @@ package installer
 import (
 	"context"
 	"fmt"
+
 	"github.com/Abdulsametileri/go-binary-version-manager/internal/commandrunner"
 	"github.com/Abdulsametileri/go-binary-version-manager/internal/model"
 )

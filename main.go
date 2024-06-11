@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/Abdulsametileri/go-binary-version-manager/cmd"
 	"os"
+
+	"github.com/Abdulsametileri/go-binary-version-manager/cmd"
 )
 
 func main() {
