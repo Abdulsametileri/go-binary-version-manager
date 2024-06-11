@@ -2,6 +2,8 @@
 
 Version manager for go libraries, currently golangci-lint and mockery support.
 
+[![🔨Build And Test](https://github.com/Abdulsametileri/go-binary-version-manager/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/Abdulsametileri/go-binary-version-manager/actions/workflows/test.yml)
+
 # Motivation
 
 The projects I worked on used different versions of the `golangci-lint` and `mockery` libraries. When I use their

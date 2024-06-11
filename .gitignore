@@ -23,3 +23,6 @@ go.work.sum
 .idea
 /internal/**/mocks/
 /cmd/**/mocks/
+
+unit_coverage.html
+unit_coverage.out
