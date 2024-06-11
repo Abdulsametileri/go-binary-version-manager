@@ -1,4 +1,4 @@
-# go-binary-version-manager (gobvm)
+# go-binary-version-manager (gbvm)
 
 Version manager for go libraries, currently golangci-lint and mockery support.
 
@@ -13,7 +13,7 @@ commands, inconsistent, strange errors occur.
 I am aiming to solve this problem by writing a basic binary manager that uses symlink under the hood.
 This project infra is easy to extend for other libraries too :)  
 
-**Note**: If you install these libraries go install ($GOPATH/go/bin), it should work flawlessly
+**Note**: Library binaries must be within ($GOPATH/go/bin) before using gbvm.
 
 # Demo
 
