@@ -24,7 +24,5 @@ This project infra is easy to extend for other libraries too :)
 
 # TODO
 - [ ] Brew package
-- [ ] Makefile, lint
-- [ ] PIPELINE
 - [ ] ASCINEMA & Doc
 - [ ] e2e test like vx
