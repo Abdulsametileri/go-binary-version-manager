@@ -15,6 +15,22 @@ This project infra is easy to extend for other libraries too :)
 
 [![asciicast](https://asciinema.org/a/663612.svg)](https://asciinema.org/a/663612)
 
+# Installation
+
+## Brew
+
+`brew install abdulsametileri/tap/gbvm`
+
+## Golang
+
+`go install github.com/Abdulsametileri/go-binary-version-manager@latest`
+
+After installing go command, the binary artifact name is `go-binary-version-manager`, 
+You can rename it like
+`mv $GOPATH/bin/go-binary-version-manager $GOPATH/bin/gbvm` 
+or
+`mv $HOME/go/bin/go-binary-version-manager $HOME/go/bin/gbvm`
+
 # Commands
 
 | Command                          | Explanation                                          | Example                              |
@@ -25,8 +41,5 @@ This project infra is easy to extend for other libraries too :)
 | gobvm uninstall $LIBRARY@VERSION | it uninstalls given version of the library           | `gobvm uninstall mockery@v2.20.0`    |
 
 
-
 # TODO
-- [ ] Brew package
-- [ ] ASCINEMA & Doc
-- [ ] e2e test like vx
+- [ ] e2e test like [vx](https://github.com/Abdulsametileri/vX/blob/main/e2e-test.sh)
