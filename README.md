@@ -13,6 +13,8 @@ commands, inconsistent, strange errors occur.
 I am aiming to solve this problem by writing a basic binary manager that uses symlink under the hood.
 This project infra is easy to extend for other libraries too :)  
 
+**Note**: If you install these libraries go install ($GOPATH/go/bin), it should work flawlessly
+
 # Demo
 
 [![asciicast](https://asciinema.org/a/663612.svg)](https://asciinema.org/a/663612)
@@ -28,10 +30,17 @@ This project infra is easy to extend for other libraries too :)
 `go install github.com/Abdulsametileri/go-binary-version-manager@latest`
 
 After installing go command, the binary artifact name is `go-binary-version-manager`, 
-You can rename it like
-`mv $GOPATH/bin/go-binary-version-manager $GOPATH/bin/gbvm` 
+you can rename it like
+
+```shell
+mv $GOPATH/bin/go-binary-version-manager $GOPATH/bin/gbvm
+``` 
+
 or
-`mv $HOME/go/bin/go-binary-version-manager $HOME/go/bin/gbvm`
+
+```shell
+mv $HOME/go/bin/go-binary-version-manager $HOME/go/bin/gbvm
+```
 
 # Commands
 
