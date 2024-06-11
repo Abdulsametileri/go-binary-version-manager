@@ -11,6 +11,10 @@ commands, inconsistent, strange errors occur.
 I am aiming to solve this problem by writing a basic binary manager that uses symlink under the hood.
 This project infra is easy to extend for other libraries too :)  
 
+# Demo
+
+[![asciicast](https://asciinema.org/a/663612.svg)](https://asciinema.org/a/663612)
+
 # Commands
 
 | Command                          | Explanation                                          | Example                              |
