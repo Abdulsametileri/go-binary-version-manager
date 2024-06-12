@@ -10,9 +10,9 @@ import (
 )
 
 var (
-	GitCommitSHA        = "unknown"
-	BuildDate           = "unknown"
-	Version      string = "0.0.1"
+	GitCommitSHA = "unknown"
+	BuildDate    = "unknown"
+	Version      = "0.0.1"
 )
 
 type VersionInfo struct {
