@@ -21,11 +21,11 @@ This project infra is easy to extend for other libraries too :)
 
 # Installation
 
-## Brew
+### via Brew
 
 `brew install abdulsametileri/tap/gbvm`
 
-## Golang
+### via Golang
 
 `go install github.com/Abdulsametileri/go-binary-version-manager@latest`
 
