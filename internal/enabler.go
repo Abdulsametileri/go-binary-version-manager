@@ -55,8 +55,6 @@ func (g *versionEnabler) Enable(_ context.Context, lib, version string) error {
 	}
 
 	log.Infof("Symlink successfully added for path %s", newName)
-	log.Infof("In order to use it, you need to have `export PATH=$PATH:$(go env GOPATH)/bin` in your bashrc/zshrc etc.")
-	log.Infof("Because executable binaries within $(go env GOPATH)/bin here")
 
 	return nil
 }
