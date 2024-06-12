@@ -13,7 +13,7 @@ commands, inconsistent, strange errors occur.
 I am aiming to solve this problem by writing a basic binary manager that uses symlink under the hood.
 This project infra is easy to extend for other libraries too :)  
 
-**Note**: Library binaries must be within ($GOPATH/go/bin) before using gbvm.
+**Note**: Library binaries must be within ($GOPATH/go/bin) before using gbvm. You can delete and install it via gbvm.
 
 # Demo
 
