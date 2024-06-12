@@ -12,6 +12,8 @@ builds:
       - linux
       - windows
       - darwin
+    ldflags:
+      - -s -w -X github.com/Abdulsametileri/go-binary-version-manager/cmd/cli.GitCommitSHA={{ .ShortCommit }} -X github.com/Abdulsametileri/go-binary-version-manager/cmd/cli.BuildDate={{ .CommitDate }}
 archives:
   - replacements:
       darwin: Darwin

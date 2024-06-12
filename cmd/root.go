@@ -14,7 +14,7 @@ var ro = &options.RootOptions{}
 
 func New() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "gobvm",
+		Use:   "gbvm",
 		Short: "Manage version of go libraries. Currently `golangci-lint` and `mockery` support",
 		PersistentPreRunE: func(_ *cobra.Command, _ []string) error {
 			return setUpLogs(os.Stdout, log.Level(ro.Verbosity))
@@ -30,6 +30,7 @@ func New() *cobra.Command {
 	cmd.AddCommand(cli.EnableCmd())
 	cmd.AddCommand(cli.ListAllCmd())
 	cmd.AddCommand(cli.UnInstallCmd())
+	cmd.AddCommand(cli.VersionCmd())
 
 	return cmd
 }
@@ -37,6 +38,7 @@ func New() *cobra.Command {
 // setUpLogs set the log output ans the log level
 func setUpLogs(out io.Writer, level log.Level) error {
 	log.SetOutput(out)
+	log.SetOutput(os.Stdout)
 	lvl, err := log.ParseLevel(level.String())
 	if err != nil {
 		return err
