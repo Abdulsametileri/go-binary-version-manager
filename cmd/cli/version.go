@@ -3,10 +3,11 @@ package cli
 import (
 	"encoding/json"
 	"fmt"
+	"runtime"
+
 	"github.com/Abdulsametileri/go-binary-version-manager/internal"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
-	"runtime"
 )
 
 var (
@@ -14,7 +15,7 @@ var (
 	BuildDate    = "unknown"
 )
 
-type CLIVersionInfo struct {
+type VersionInfo struct {
 	Version      string
 	GitCommitSHA string
 	BuildDate    string
@@ -29,8 +30,16 @@ func VersionCmd() *cobra.Command {
 		Short:        "Prints the CLI version",
 		Long:         `Prints the CLI version`,
 		SilenceUsage: true,
-		RunE: func(cmd *cobra.Command, args []string) error {
-			bytes, err := json.Marshal(VersionInfo())
+		RunE: func(_ *cobra.Command, _ []string) error {
+			vi := &VersionInfo{
+				Version:      internal.Version,
+				GitCommitSHA: GitCommitSHA,
+				BuildDate:    BuildDate,
+				GoVersion:    runtime.Version(),
+				Compiler:     runtime.Compiler,
+				Platform:     fmt.Sprintf("%s/%s", runtime.GOOS, runtime.GOARCH),
+			}
+			bytes, err := json.Marshal(vi)
 			if err != nil {
 				return fmt.Errorf("failed to marshal version info %s", err.Error())
 			}
@@ -40,15 +49,4 @@ func VersionCmd() *cobra.Command {
 		},
 	}
 	return cmd
-}
-
-func VersionInfo() *CLIVersionInfo {
-	return &CLIVersionInfo{
-		Version:      internal.Version,
-		GitCommitSHA: GitCommitSHA,
-		BuildDate:    BuildDate,
-		GoVersion:    runtime.Version(),
-		Compiler:     runtime.Compiler,
-		Platform:     fmt.Sprintf("%s/%s", runtime.GOOS, runtime.GOARCH),
-	}
 }
