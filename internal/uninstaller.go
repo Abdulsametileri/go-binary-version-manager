@@ -4,6 +4,8 @@ import (
 	"context"
 	"fmt"
 
+	log "github.com/sirupsen/logrus"
+
 	"github.com/Abdulsametileri/go-binary-version-manager/internal/commandrunner"
 	"github.com/Abdulsametileri/go-binary-version-manager/pkg"
 )
@@ -32,5 +34,10 @@ func (u *uninstaller) Uninstall(_ context.Context, lib, version string) error {
 		return err
 	}
 	path := fmt.Sprintf("%s/bin/glvm/%s/%s", goRootPath, lib, version)
-	return u.os.RemoveAll(path)
+	if err = u.os.RemoveAll(path); err != nil {
+		return err
+	}
+
+	log.Infof("%s@%s's path %s is removed successfully", lib, version, path)
+	return nil
 }

@@ -22,4 +22,4 @@ unit-coverage-html:
 ## build-cli: build the cli application
 .PHONY: build-cli
 build-cli:
-	go build -o gobvm .
+	go build -o gbvm .

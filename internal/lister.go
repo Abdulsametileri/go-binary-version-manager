@@ -7,6 +7,8 @@ import (
 	"io"
 	"io/fs"
 
+	log "github.com/sirupsen/logrus"
+
 	"github.com/Abdulsametileri/go-binary-version-manager/internal/commandrunner"
 	"github.com/Abdulsametileri/go-binary-version-manager/pkg"
 )
@@ -55,6 +57,7 @@ func (s *stdoutLister) List(_ context.Context, lib string) error {
 		return err
 	}
 
+	log.Infof("Getting all files within %s", root)
 	_, err = buf.WriteTo(s.listTo)
 	return err
 }

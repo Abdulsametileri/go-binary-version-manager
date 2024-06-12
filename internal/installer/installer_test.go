@@ -28,4 +28,14 @@ func TestGetInstaller(t *testing.T) {
 		assert.NotNil(t, installer)
 		assert.Nil(t, err)
 	})
+	t.Run("Success_For_Mockery_Lint", func(t *testing.T) {
+		// Given
+
+		// When
+		installer, err := Get(model.LibraryMockery.String())
+
+		// Then
+		assert.NotNil(t, installer)
+		assert.Nil(t, err)
+	})
 }
