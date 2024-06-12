@@ -16,7 +16,7 @@ This project infra is easy to extend for other libraries too :)
 
 **Note**: Executable binaries must be within ($GOPATH/go/bin) before using gbvm.
 For example, if you installed golangci-lint via homebrew, you need to delete it first. 
-You should install with `gobvm install` command.
+You should install with `gbvm install` command.
 
 # Demo
 
