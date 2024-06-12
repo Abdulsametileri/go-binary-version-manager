@@ -48,12 +48,12 @@ mv $HOME/go/bin/go-binary-version-manager $HOME/go/bin/gbvm
 
 # Commands
 
-| Command                          | Explanation                                          | Example                              |
-|----------------------------------|------------------------------------------------------|--------------------------------------|
-| gobvm listall $LIBRARY           | it lists all installed versions of the given library | `gobvm listall mockery`              |
-| gobvm enable $LIBRARY@$VERSION   | it enables given version of the library              | `gobvm enable golangci-lint@v1.55.1` |
-| gobvm install $LIBRARY@VERSION   | it installs given version of the library             | `gobvm install mockery@v2.20.0`      |
-| gobvm uninstall $LIBRARY@VERSION | it uninstalls given version of the library           | `gobvm uninstall mockery@v2.20.0`    |
+| Command                         | Explanation                                          | Example                             |
+|---------------------------------|------------------------------------------------------|-------------------------------------|
+| gbvm listall $LIBRARY           | it lists all installed versions of the given library | `gbvm listall mockery`              |
+| gbvm enable $LIBRARY@$VERSION   | it enables given version of the library              | `gbvm enable golangci-lint@v1.55.1` |
+| gbvm install $LIBRARY@VERSION   | it installs given version of the library             | `gbvm install mockery@v2.20.0`      |
+| gbvm uninstall $LIBRARY@VERSION | it uninstalls given version of the library           | `gbvm uninstall mockery@v2.20.0`    |
 
 
 # TODO
