@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/Abdulsametileri/go-binary-version-manager/internal"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
 var (
-	GitCommitSHA = "unknown"
-	BuildDate    = "unknown"
+	GitCommitSHA        = "unknown"
+	BuildDate           = "unknown"
+	Version      string = "0.0.1"
 )
 
 type VersionInfo struct {
@@ -32,7 +32,7 @@ func VersionCmd() *cobra.Command {
 		SilenceUsage: true,
 		RunE: func(_ *cobra.Command, _ []string) error {
 			vi := &VersionInfo{
-				Version:      internal.Version,
+				Version:      Version,
 				GitCommitSHA: GitCommitSHA,
 				BuildDate:    BuildDate,
 				GoVersion:    runtime.Version(),
