@@ -12,7 +12,7 @@ func TestLibraryOptions_SetLibraryNameAndVersion(t *testing.T) {
 		io := &LibraryOptions{}
 
 		// When
-		result := io.SetLibraryNameAndVersion([]string{})
+		result := io.Set([]string{})
 
 		// Then
 		assert.Error(t, result)
@@ -22,7 +22,7 @@ func TestLibraryOptions_SetLibraryNameAndVersion(t *testing.T) {
 		io := &LibraryOptions{}
 
 		// When
-		result := io.SetLibraryNameAndVersion([]string{"mockery"})
+		result := io.Set([]string{"mockery"})
 
 		// Then
 		assert.Error(t, result)
@@ -32,11 +32,13 @@ func TestLibraryOptions_SetLibraryNameAndVersion(t *testing.T) {
 		io := &LibraryOptions{}
 
 		// When
-		result := io.SetLibraryNameAndVersion([]string{"mockery@v2.20.0"})
+		result := io.Set([]string{"github.com/golangci/golangci-lint/cmd/golangci-lint@v1.59.0"})
 
 		// Then
 		assert.Nil(t, result)
-		assert.Equal(t, "mockery", io.LibraryName)
-		assert.Equal(t, "v2.20.0", io.Version)
+		assert.Equal(t, "github.com/golangci/golangci-lint/cmd/golangci-lint", io.Address)
+		assert.Equal(t, "v1.59.0", io.Version)
+		assert.Equal(t, "golangci-lint", io.LibName)
+		assert.Equal(t, "github.com/golangci/golangci-lint/cmd/golangci-lint@v1.59.0", io.Package)
 	})
 }

@@ -15,7 +15,7 @@ var ro = &options.RootOptions{}
 func New() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "gbvm",
-		Short: "Manage version of go libraries. Currently `golangci-lint` and `mockery` support",
+		Short: "Manage version of libraries which installed via `go install` command.",
 		PersistentPreRunE: func(_ *cobra.Command, _ []string) error {
 			return setUpLogs(os.Stdout, log.Level(ro.Verbosity))
 		},
