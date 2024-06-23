@@ -52,5 +52,3 @@ func Install(_ context.Context, o *options.InstallOptions) error {
 	log.Infof("Lib %s version %s Successfully installed!\n%s", o.LibName, o.Version, out)
 	return nil
 }
-
-// TODO: where to put?
