@@ -1,15 +1,14 @@
 package options
 
 import (
-	"testing"
-
 	"github.com/stretchr/testify/assert"
+	"testing"
 )
 
-func TestLibraryOptions_SetLibraryNameAndVersion(t *testing.T) {
+func TestInstallOptions_Set(t *testing.T) {
 	t.Run("Should_Return_Error_When_Args_Are_Empty", func(t *testing.T) {
 		// Given
-		io := &LibraryOptions{}
+		io := &InstallOptions{}
 
 		// When
 		result := io.Set([]string{})
@@ -19,7 +18,7 @@ func TestLibraryOptions_SetLibraryNameAndVersion(t *testing.T) {
 	})
 	t.Run("Should_Return_Error_When_Args_Aren't_Include_@", func(t *testing.T) {
 		// Given
-		io := &LibraryOptions{}
+		io := &InstallOptions{}
 
 		// When
 		result := io.Set([]string{"mockery"})
@@ -29,7 +28,7 @@ func TestLibraryOptions_SetLibraryNameAndVersion(t *testing.T) {
 	})
 	t.Run("Success", func(t *testing.T) {
 		// Given
-		io := &LibraryOptions{}
+		io := &InstallOptions{}
 
 		// When
 		result := io.Set([]string{"github.com/golangci/golangci-lint/cmd/golangci-lint@v1.59.0"})
