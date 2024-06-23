@@ -13,7 +13,7 @@ type UnInstallOptions struct {
 
 func (uio *UnInstallOptions) Set(args []string) error {
 	if len(args) == 0 {
-		return fmt.Errorf("provide a library@version. Like `gbvm install mockery@v2.20.0`")
+		return fmt.Errorf("provide a library@version. Like `gbvm uninstall mockery@v2.20.0`")
 	}
 
 	splitted := strings.Split(args[0], "@")
