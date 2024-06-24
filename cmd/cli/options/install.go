@@ -3,8 +3,9 @@ package options
 import (
 	"errors"
 	"fmt"
-	"github.com/Abdulsametileri/go-binary-version-manager/internal"
 	"strings"
+
+	"github.com/Abdulsametileri/go-binary-version-manager/internal"
 )
 
 /*
