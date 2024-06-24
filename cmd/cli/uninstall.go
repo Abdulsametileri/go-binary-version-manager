@@ -2,11 +2,12 @@ package cli
 
 import (
 	"context"
+	"fmt"
+	"os"
 
 	"github.com/Abdulsametileri/go-binary-version-manager/cmd/cli/options"
-	"github.com/Abdulsametileri/go-binary-version-manager/internal"
-	"github.com/Abdulsametileri/go-binary-version-manager/internal/commandrunner"
 	"github.com/Abdulsametileri/go-binary-version-manager/pkg"
+	log "github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -18,7 +19,7 @@ func UnInstallCmd() *cobra.Command {
 		Short:        "it uninstalls given version of the library",
 		SilenceUsage: true,
 		PreRunE: func(_ *cobra.Command, args []string) error {
-			return o.SetLibraryNameAndVersion(args)
+			return o.Set(args)
 		},
 		RunE: func(cmd *cobra.Command, _ []string) error {
 			return UnInstall(cmd.Context(), o)
@@ -28,7 +29,21 @@ func UnInstallCmd() *cobra.Command {
 	return cmd
 }
 
-func UnInstall(ctx context.Context, o *options.UnInstallOptions) error {
-	uninstaller := internal.NewUninstaller(commandrunner.Get("go"), pkg.RealOs{})
-	return uninstaller.Uninstall(ctx, o.LibraryName, o.Version)
+func UnInstall(_ context.Context, o *options.UnInstallOptions) error {
+	goRootPath, err := pkg.RunCommand("go", "env", "GOPATH")
+	if err != nil {
+		return err
+	}
+
+	log.Debugf("go env GOPATH output %s", goRootPath)
+
+	path := fmt.Sprintf("%s/bin/glvm/%s/%s", goRootPath, o.LibName, o.Version)
+	log.Debugf("will remove this %s", path)
+
+	if err = os.RemoveAll(path); err != nil {
+		return err
+	}
+
+	log.Infof("%s@%s's path %s is removed successfully", o.LibName, o.Version, path)
+	return nil
 }
