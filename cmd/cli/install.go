@@ -21,7 +21,7 @@ func InstallCmd() *cobra.Command {
 		PreRunE: func(_ *cobra.Command, args []string) error {
 			return o.Set(args)
 		},
-		RunE: func(cmd *cobra.Command, args []string) error {
+		RunE: func(cmd *cobra.Command, _ []string) error {
 			return Install(cmd.Context(), o)
 		},
 	}
