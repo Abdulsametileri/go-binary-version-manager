@@ -11,12 +11,14 @@ Version manager of libraries which installed via `go install` command.
 
 The projects I worked on used different versions of the `golangci-lint` and `mockery` libraries. When I use their
 commands, inconsistent, strange errors occur.
-I am aiming to solve this problem by writing a basic binary manager that uses symlink under the hood. You can use any
-libray you want.
+I am aiming to solve this problem by writing a basic binary manager that uses symlink under the hood. 
+
+This project is not specific to golangci-lint, mockery. You can use any library you want. The condition is the library
+must be installed via `go install` command.
 
 **Note**: Executable binaries must be within ($GOPATH/go/bin) before using gbvm.
 For example, if you installed golangci-lint via homebrew, you need to delete it first. 
-You should install with `gbvm install` command.
+You should install with `gbvm install` command. Please check demo.
 
 # Demo
 
@@ -60,7 +62,3 @@ This library heavily used `go env GOPATH`, please check
 export PATH=$PATH:$(go env GOPATH)/bin
 defined your zshrc/bashrc
 ```
-
-
-# TODO
-- [ ] e2e test like [vx](https://github.com/Abdulsametileri/vX/blob/main/e2e-test.sh)
