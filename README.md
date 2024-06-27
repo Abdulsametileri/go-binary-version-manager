@@ -11,7 +11,8 @@ Version manager of libraries which installed via `go install` command.
 
 The projects I worked on used different versions of the `golangci-lint` and `mockery` libraries. When I use their
 commands, inconsistent, strange errors occur.
-I am aiming to solve this problem by writing a basic binary manager that uses symlink under the hood.
+I am aiming to solve this problem by writing a basic binary manager that uses symlink under the hood. You can use any
+libray you want.
 
 **Note**: Executable binaries must be within ($GOPATH/go/bin) before using gbvm.
 For example, if you installed golangci-lint via homebrew, you need to delete it first. 
@@ -19,7 +20,7 @@ You should install with `gbvm install` command.
 
 # Demo
 
-[![asciicast](https://asciinema.org/a/663612.svg)](https://asciinema.org/a/663612)
+[![asciicast](https://asciinema.org/a/665884.svg)](https://asciinema.org/a/665884)
 
 # Installation
 
